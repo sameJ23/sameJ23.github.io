@@ -4,139 +4,461 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Novosel – Portfolio</title>
+
   <style>
     :root {
-      --bg: #0f172a;        /* slate-900 */
-      --panel: #111827;     /* gray-900 */
-      --text: #e5e7eb;      /* gray-200 */
-      --muted: #94a3b8;     /* slate-400 */
-      --accent: #60a5fa;    /* blue-400 */
-      --card: #0b1220;      /* darker panel */
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --card: #0b1220;
       --ring: rgba(96,165,250,.4);
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
     body {
-      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 10% 0%, rgba(96,165,250,.08), transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(16,185,129,.08), transparent 60%),
-                  var(--bg);
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+        Cantarell, Noto Sans, "Helvetica Neue", Arial;
+
+      background:
+        radial-gradient(
+          1200px 600px at 10% 0%,
+          rgba(96,165,250,.08),
+          transparent 60%
+        ),
+        radial-gradient(
+          900px 500px at 90% 10%,
+          rgba(16,185,129,.08),
+          transparent 60%
+        ),
+        var(--bg);
+
       color: var(--text);
     }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 20px 72px; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #60a5fa, #34d399); box-shadow: 0 0 0 3px var(--ring); }
-    h1 { font-size: clamp(22px, 3vw, 28px); margin: 0; }
-    .sub { color: var(--muted); margin: 6px 0 0; font-size: 14px; }
 
-    nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-size: 14px; }
-    nav a:hover { color: var(--text); }
-
-    .hero { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border: 1px solid rgba(148,163,184,.12); border-radius: 18px; padding: 22px 22px; display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .hero h2 { margin: 0; font-size: clamp(22px, 4vw, 32px); }
-    .hero p { margin: 0; color: var(--muted); }
-
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-top: 22px; }
-    .card { grid-column: span 12; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)), var(--card); border: 1px solid rgba(148,163,184,.12); border-radius: 16px; padding: 18px; position: relative; overflow: hidden; }
-    @media (min-width: 720px) {
-      .card { grid-column: span 4; }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
     }
-    .thumb { aspect-ratio: 16/9; background: #0a0f1c; border: 1px solid rgba(148,163,184,.14); border-radius: 12px; display: grid; place-items: center; color: var(--muted); font-size: 13px; margin-bottom: 14px; }
-    .title { font-size: 18px; margin: 0 0 6px; }
-    .desc { color: var(--muted); font-size: 14px; margin: 0 0 14px; min-height: 38px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-    .tag { font-size: 12px; color: var(--accent); background: rgba(96,165,250,.10); border: 1px solid rgba(96,165,250,.25); padding: 6px 10px; border-radius: 999px; }
-    .actions { display: flex; gap: 10px; }
-    .btn { appearance: none; border: 1px solid rgba(148,163,184,.2); background: #0d1424; color: var(--text); padding: 10px 12px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; }
-    .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--ring); }
-    .btn.primary { background: linear-gradient(135deg, rgba(96,165,250,.15), rgba(52,211,153,.15)); border-color: rgba(96,165,250,.35); }
 
-    footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 0;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin: 6px 0 0;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.02),
+          rgba(255,255,255,0)
+        );
+
+      border: 1px solid rgba(148,163,184,.12);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 32px);
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      grid-column: span 12;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.02),
+          rgba(255,255,255,0)
+        ),
+        var(--card);
+
+      border: 1px solid rgba(148,163,184,.12);
+      border-radius: 16px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 720px) {
+      .card {
+        grid-column: span 4;
+      }
+    }
+
+    .thumb {
+      aspect-ratio: 16 / 9;
+      background: #0a0f1c;
+
+      border: 1px solid rgba(148,163,184,.14);
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--muted);
+      font-size: 13px;
+
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 18px;
+      margin: 0 0 6px;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 14px;
+      min-height: 42px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--accent);
+
+      background: rgba(96,165,250,.10);
+      border: 1px solid rgba(96,165,250,.25);
+
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+
+      border: 1px solid rgba(148,163,184,.2);
+      background: #0d1424;
+
+      color: var(--text);
+
+      padding: 10px 12px;
+      border-radius: 10px;
+
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--ring);
+    }
+
+    .btn.primary {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(96,165,250,.15),
+          rgba(52,211,153,.15)
+        );
+
+      border-color: rgba(96,165,250,.35);
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
   </style>
 </head>
+
 <body>
+
   <div class="wrap">
+
     <header>
+
       <div class="brand">
-        <div class="avatar" aria-hidden="true"></div>
+
         <div>
           <h1>James Novosel</h1>
-          <p class="sub">Student @ UTS • Game dev & ML tinkerer • Sydney, AU</p>
+
+          <p class="sub">
+            Computing Science student at UTS • Software Development • Sydney, Australia
+          </p>
         </div>
+
       </div>
+
       <nav>
-        <a href="https://github.com/sameJ23" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="mailto:you@example.com">Email</a>
+
+        <a
+          href="https://github.com/sameJ23"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+
+        <a href="mailto:you@example.com">
+          Email
+        </a>
+
       </nav>
+
     </header>
 
+
     <section class="hero">
+
       <h2>Projects</h2>
-      <p>Three highlights from recent work. Each card links to a live demo (GitHub Pages) and the source repository.</p>
+
+      <p>
+        A selection of projects I've worked on across software development,
+        machine learning, game development and other areas of computing.
+        Select a project to learn more about how it was built and the
+        technologies I used.
+      </p>
+
     </section>
+
 
     <section class="grid">
-      <!-- Project 1 -->
+
+      <!-- PROJECT 1 -->
+
       <article class="card">
+
         <div class="thumb">
-          <img src="demo1.png" alt="Project 1 cover" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+
+          <img
+            src="demo1.png"
+            alt="K-Means Colour Detection project"
+          >
+
         </div>
-        <h3 class="title">p5.js – Image K‑Means Palette</h3>
-        <p class="desc">Extracts dominant colours from an image using k‑means clustering and visualises them as pallets & gradients.</p>
+
+        <h3 class="title">
+          K-Means Colour Detection
+        </h3>
+
+        <p class="desc">
+          An interactive image analysis tool that identifies dominant colours
+          using K-Means clustering and generates colour palettes and gradients.
+        </p>
+
         <div class="tags">
+
           <span class="tag">JavaScript</span>
           <span class="tag">p5.js</span>
-          <span class="tag">K‑Means</span>
+          <span class="tag">K-Means</span>
+
         </div>
+
         <div class="actions">
-          <a class="btn primary" href="https://samej23.github.io/K-Means-Colour-Detection/" target="_blank" rel="noreferrer">Live Demo</a>
-          <a class="btn" href="https://github.com/sameJ23/K-Means-Colour-Detection" target="_blank" rel="noreferrer">Source</a>
+
+          <a
+            class="btn primary"
+            href="#"
+          >
+            Learn More
+          </a>
+
+          <a
+            class="btn"
+            href="https://github.com/sameJ23/K-Means-Colour-Detection"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
         </div>
+
       </article>
 
-      <!-- Project 2 -->
+
+      <!-- PROJECT 2 -->
+
       <article class="card">
-        <div class="thumb">Add a 1280×720 cover.png</div>
-        <h3 class="title">Unity 2D – Dash & Bounce</h3>
-        <p class="desc">A tight 2D controller with horizontal dash and bounce mechanics, built for WebGL with pixel‑perfect camera.</p>
+
+        <div class="thumb">
+          Project Screenshot
+        </div>
+
+        <h3 class="title">
+          Unity 2D Platformer
+        </h3>
+
+        <p class="desc">
+          A 2D platforming project focused on responsive movement,
+          custom mechanics and player feedback.
+        </p>
+
         <div class="tags">
+
           <span class="tag">Unity</span>
           <span class="tag">C#</span>
-          <span class="tag">WebGL</span>
+          <span class="tag">Game Development</span>
+
         </div>
+
         <div class="actions">
-          <a class="btn primary" href="https://YOUR_USERNAME.github.io/PROJECT2/" target="_blank" rel="noreferrer">Live Demo</a>
-          <a class="btn" href="https://github.com/YOUR_USERNAME/PROJECT2" target="_blank" rel="noreferrer">Source</a>
+
+          <a
+            class="btn primary"
+            href="#"
+          >
+            Learn More
+          </a>
+
+          <a
+            class="btn"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
         </div>
+
       </article>
 
-      <!-- Project 3 -->
+
+      <!-- PROJECT 3 -->
+
       <article class="card">
-        <div class="thumb">Add a 1280×720 cover.png</div>
-        <h3 class="title">PyTorch – Password Strength Estimator</h3>
-        <p class="desc">Neural model that scores password strength and explains feature contributions with clear visualisations.</p>
+
+        <div class="thumb">
+          Project Screenshot
+        </div>
+
+        <h3 class="title">
+          Password Strength Estimator
+        </h3>
+
+        <p class="desc">
+          A machine learning project using a neural network to analyse
+          characteristics of passwords and estimate their strength.
+        </p>
+
         <div class="tags">
+
           <span class="tag">Python</span>
           <span class="tag">PyTorch</span>
-          <span class="tag">ML</span>
+          <span class="tag">Machine Learning</span>
+
         </div>
+
         <div class="actions">
-          <a class="btn primary" href="https://YOUR_USERNAME.github.io/PROJECT3/" target="_blank" rel="noreferrer">Live Demo</a>
-          <a class="btn" href="https://github.com/YOUR_USERNAME/PROJECT3" target="_blank" rel="noreferrer">Source</a>
+
+          <a
+            class="btn primary"
+            href="#"
+          >
+            Learn More
+          </a>
+
+          <a
+            class="btn"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
         </div>
+
       </article>
+
     </section>
 
+
     <footer>
-      © <span id="y"></span> James Novosel — Sydney, Australia
+
+      © <span id="y"></span> James Novosel • Sydney, Australia
+
     </footer>
+
   </div>
 
+
   <script>
-    // set current year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("y").textContent =
+      new Date().getFullYear();
   </script>
-  
+
 </body>
 </html>
